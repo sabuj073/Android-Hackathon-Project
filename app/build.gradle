@@ -18,13 +18,20 @@ android {
         debug {
             applicationIdSuffix ".debug"
             debuggable true
-            manifestPlaceholders = [label: "Android Hackathon Project"]
+            manifestPlaceholders = [
+                    label: "Android Hackathon Project",
+                    appIcon: "@mipmap/gp",
+                    appIconRound: "@mipmap/gp_round"
+            ]
             resValue "string", "app_name", "Android Hackathon Project"
         }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            manifestPlaceholders = [label: "Android Hackathon Project"]
+            manifestPlaceholders = [label: "Android Hackathon Project",
+                                    appIcon: "@mipmap/gp",
+                                    appIconRound: "@mipmap/gp_round"
+            ]
             resValue "string", "app_name", "Android Hackathon Project"
         }
 
@@ -32,14 +39,22 @@ android {
             initWith release
             applicationIdSuffix '.Telenor'
             matchingFallbacks = ['release']
-            manifestPlaceholders = [label: "Telenor"]
+            manifestPlaceholders = [
+                    label: "Telenor",
+                    appIcon: "@mipmap/telenor",
+                    appIconRound: "@mipmap/telenor_round"
+            ]
             resValue "string", "app_name", "Telenor"
         }
         Grameenphone {
             initWith release
             applicationIdSuffix '.Grameenphone'
             matchingFallbacks = ['release']
-            manifestPlaceholders = [label: "Grameenphone"]
+            manifestPlaceholders = [
+                    label: "Telenor",
+                    appIcon: "@mipmap/gp",
+                    appIconRound: "@mipmap/gp_round"
+            ]
             resValue "string", "app_name", "Grameenphone"
         }
     }
