@@ -15,9 +15,9 @@ android {
     }
     buildTypes {
 
-        debuf {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        debug {
+            applicationIdSuffix ".debug"
+            debuggable true
             manifestPlaceholders = [label: "Android Hackathon Project"]
             resValue "string", "app_name", "Android Hackathon Project"
         }
