@@ -1,20 +1,22 @@
 package com.mehedi_hasan_sabuj.mymovies.ui.home
 
+import android.app.AlertDialog
+import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mehedi_hasan_sabuj.mymovies.*
 
+
+@Suppress("DEPRECATION")
 class HomeFragment : Fragment() {
+
 
   private lateinit var homeViewModel: HomeViewModel
   private lateinit var popularMovies: RecyclerView
@@ -34,6 +36,8 @@ class HomeFragment : Fragment() {
   private lateinit var upcomingMoviesLayoutMgr: LinearLayoutManager
 
   private var upcomingMoviesPage = 1
+  var progressDialog: ProgressDialog? = null
+
 
   override fun onCreateView(
     inflater: LayoutInflater,
@@ -76,6 +80,8 @@ class HomeFragment : Fragment() {
     getPopularMovies()
     getTopRatedTvSeries()
     getUpcomingMovies()
+    progressDialog= ProgressDialog(activity);
+    ProgressUtil.showProgressDialog(progressDialog)
     return root
   }
   private fun getPopularMovies() {
@@ -162,10 +168,11 @@ class HomeFragment : Fragment() {
   private fun onUpcomingMoviesFetched(movies: List<Movie>) {
     upcomingMoviesAdapter.appendMovies(movies)
     attachUpcomingMoviesOnScrollListener()
+    ProgressUtil.hideProgressDialog(progressDialog)
   }
 
   private fun showMovieDetails(movie: Movie) {
-    val intent = Intent (activity, MovieDetailsActivity::class.java)
+    val intent = Intent(activity, MovieDetailsActivity::class.java)
 
     intent.putExtra(MOVIE_BACKDROP, movie.backdropPath)
     intent.putExtra(MOVIE_POSTER, movie.posterPath)

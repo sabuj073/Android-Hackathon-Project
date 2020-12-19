@@ -2,6 +2,7 @@ package com.mehedi_hasan_sabuj.mymovies
 
 import android.app.ProgressDialog
 import android.content.Context
+import android.widget.ProgressBar
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

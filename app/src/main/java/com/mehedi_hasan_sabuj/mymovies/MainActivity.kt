@@ -1,5 +1,7 @@
 package com.mehedi_hasan_sabuj.mymovies
 
+import android.app.AlertDialog
+import android.content.Context
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +16,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
+
 
         val navController = findNavController(R.id.nav_host_fragment)
         // Passing each menu ID as a set of Ids because each
