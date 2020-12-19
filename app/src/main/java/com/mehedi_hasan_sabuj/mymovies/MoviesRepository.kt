@@ -22,7 +22,7 @@ object MoviesRepository {
             .build()
 
         api = retrofit.create(Api::class.java)
-        
+
     }
 
     fun getPopularMovies(

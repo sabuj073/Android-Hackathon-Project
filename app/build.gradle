@@ -14,11 +14,36 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+
+        debuf {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            manifestPlaceholders = [label: "Android Hackathon Project"]
+            resValue "string", "app_name", "Android Hackathon Project"
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            manifestPlaceholders = [label: "Android Hackathon Project"]
+            resValue "string", "app_name", "Android Hackathon Project"
+        }
+
+        Telenor {
+            initWith release
+            applicationIdSuffix '.Telenor'
+            matchingFallbacks = ['release']
+            manifestPlaceholders = [label: "Telenor"]
+            resValue "string", "app_name", "Telenor"
+        }
+        Grameenphone {
+            initWith release
+            applicationIdSuffix '.Grameenphone'
+            matchingFallbacks = ['release']
+            manifestPlaceholders = [label: "Grameenphone"]
+            resValue "string", "app_name", "Grameenphone"
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
